@@ -19,7 +19,12 @@ export class UsersController {
     log(createUserDto.username);
     log(createUserDto.password);
     const res = await this.usersService.createUser(createUserDto);
-    return res;
+    return {
+      id: 'asdasd',
+      address: createUserDto.address,
+      phone: createUserDto.phone,
+      username: createUserDto.username,
+    };
   }
   @Post('login')
   async login(@Body() loginDto: LoginDto) {
